@@ -16,3 +16,14 @@ MultiModalRag : Documents dont always have to be simple texts, documents can hav
       3. We then pass these chunks to the LLM to summarize the text, images, tables so we get the chunks of searchable and readable of data, but we make sure we store the original image and data as metadata 
       4. These summarized chunks are then stored in the vector DB
       5. Then the rest of the pipeline is similar to the regular RAG
+
+Retrieval Methods from RAG: There aer 3 types of retrievals from RAG that we can do based on the type of outptu we are expecting from the RAG
+      1. Basic Similarity Search Retrival : Retrieves chunks even if the query is not relevant to the query.
+      2. Similarity With score Threshold :  Retrives chunks only wioth certain similarity score
+      3. Maximum Mariginal Relevance : Balances relevance and diversity and avoids redudance. It has 2 step process, first finds the chunks that has data relevant to the query, and later tries to filter chunks based on the different context. Because of the diversified chunks the system has better context and can give better answers. Use MMR when 
+           a. When documents have overlapping content
+           b. Need Well rounded answer
+           3. Doing Research and want diversified perspectives.
+         MMR can not be used when we want absolute relevant answers and want the system to be fast
+           
+
