@@ -13,7 +13,7 @@ embedding_model = SentenceTransformerEmbeddings(model_name="sentence-transformer
 db = Chroma(
     persist_directory= persistent_directory,
     embedding_function = embedding_model,
-    collection_metadata={"smsw:space" : "cosine"},
+    collection_metadata={"hnsw:space" : "cosine"},
 )
 
 # sample query

@@ -78,7 +78,7 @@ def create_vector_store(chunks,persist_directory = "db/chroma_db"):
         documents = chunks,
         embedding = embedding_model,
         persist_directory=persist_directory,
-        collection_metadata={"smsw:space":"cosine"},
+        collection_metadata={"hnsw:space":"cosine"},
     )
 
     print(f"-------------Finished Creating Vector store---------------")
@@ -99,7 +99,7 @@ def main():
         vectorstore = Chroma(
             embedding_model = embedding_model,
             persist_directory=persist_directory,
-            collection_metadata={"smsw:space": "cosine"}
+            collection_metadata={"hnsw:space": "cosine"}
         )
 
         print(f"Loading Existing Vector Store {vectorstore._collection.count()} documents")
